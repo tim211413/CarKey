@@ -28,10 +28,48 @@
       font-size: 1.2rem;
       color: #555;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      background-color: #ffffff;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
+    }
+    nav button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 999px;
+      background-color: #e0e7ff;
+      color: #2b7cff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+    nav button:hover {
+      background-color: #c7d2fe;
+      transform: translateY(-2px);
+    }
+    nav button.active-tab {
+      background-color: #2b7cff;
+      color: white;
+    }
     .section {
+      display: none;
       padding: 2rem 1rem;
       max-width: 800px;
       margin: auto;
+      animation: fadeIn 0.3s ease-in;
+    }
+    .section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .section h2 {
       color: #2b7cff;
@@ -70,8 +108,38 @@
       background-color: #f0f0f0;
       margin-top: 2rem;
     }
+    .video-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .video-wrapper video {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 0 auto;
+    }
   </style>
   <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active-tab');
+      });
+      const clickedButton = document.querySelector(`nav button[onclick="showSection('${id}')"]`);
+      if (clickedButton) clickedButton.classList.add('active-tab');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showSection('services');
+    });
+
     if (window.location.hostname === "www.carkey.help") {
       window.location.href = "https://carkey.help";
     }
@@ -84,16 +152,22 @@
     <p>快速、安全、可靠的汽車鑰匙解決方案</p>
   </header>
 
-  <section class="section">
+  <nav>
+    <button onclick="showSection('services')">服務項目</button>
+    <button onclick="showSection('faq')">常見問題</button>
+    <button onclick="showSection('video')">服務影片</button>
+    <button onclick="showSection('contact')">聯絡我們</button>
+  </nav>
+
+  <section class="section" id="services">
     <h2>服務項目</h2>
-    <ul>
-      <li>汽車鑰匙複製（晶片鑰匙、遙控鑰匙）</li>
-      <li>汽車鑰匙全部遺失，免拖車回原廠，現場匹配全新鑰匙</li>
-      <li>汽車機械鎖頭、電子鎖頭維修</li>
-    </ul>
+    <div class="service-list">
+      <div class="service-item">汽車鑰匙複製（晶片鑰匙、遙控鑰匙）</div>
+      <div class="service-item">汽車鑰匙全部遺失，免拖車回原廠，現場匹配全新鑰匙</div>
+      <div class="service-item">汽車鑰匙遙控器電池更換</div>
   </section>
 
-  <section class="section">
+  <section class="section" id="faq">
     <h2>常見問題</h2>
     <div class="faq">
       <p class="q">Q：需要多久完成拷貝鑰匙？</p>
@@ -105,13 +179,27 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="video">
+    <h2>服務介紹影片</h2>
+    <div class="video-wrapper">
+      <video controls autoplay muted loop>
+        <source src="video/demo_1.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+      <video controls autoplay muted loop>
+        <source src="video/demo_2.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
     <h2>聯絡我們</h2>
     <div class="contact">
       <p>📞 電話：<a href="tel:0968659699">0968-659-699</a></p>
       <p>💬 LINE：<a href="https://line.me/ti/p/0968659699" target="_blank">加入好友</a></p>
       <p>📘 Facebook：<a href="https://www.facebook.com/profile.php?id=100082977680692&locale=zh_TW" target="_blank">粉絲專頁</a></p>
-      <p>📍 地址：<a href="https://www.google.com.tw/maps/place/333桃園市龜山區新興一街206號/@25.0518932,121.3539899,17z/data=!4m6!3m5!1s0x3442a74afa0b1c57:0x7087eb2499612453!8m2!3d25.0518932!4d121.3565648!16s%2Fg%2F11l76cc7rs?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">桃園市龜山區新興一街 206 號</a></p>
+      <p>📍 地址：<a href="https://www.google.com.tw/maps/place/333桃園市龜山區新興一街206號/@25.0518932,121.3539899,17z" target="_blank">桃園市龜山區新興一街 206 號</a></p>
     </div>
   </section>
 

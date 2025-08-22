@@ -17,6 +17,44 @@
     // Google Ads 基本追蹤
     gtag('config', 'AW-10944580448');
   </script>
+
+  <!-- Google Ads 轉換追蹤事件 -->
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelectorAll('a[href*="tel:"]').forEach(function (phoneLink) {
+        phoneLink.addEventListener('click', function () {
+          gtag('event', 'conversion', {'send_to': 'AW-10944580448/S9XFCK-IxYAbEOCW5OIo'});
+        });
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelectorAll('a[href*="maps"]').forEach(function (mapLink) {
+        mapLink.addEventListener('click', function () {
+          gtag('event', 'conversion', {'send_to': 'AW-10944580448/Tij5CNaIxYAbEOCW5OIo'});
+        });
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelectorAll('a[href*="www.facebook.com"]').forEach(function (FBClick) {
+        FBClick.addEventListener('click', function () {
+          gtag('event', 'conversion', {'send_to': 'AW-10944580448/E-RQCNOIxYAbEOCW5OIo'});
+        });
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelectorAll('a[href*="line.me"]').forEach(function (lineClick) {
+        lineClick.addEventListener('click', function () {
+          gtag('event', 'conversion', {'send_to': 'AW-10944580448/aaseCNCIxYAbEOCW5OIo'});
+        });
+      });
+    });
+  </script>
   
   <meta name="description" content="桃園汽車晶片鑰匙服務，專業快速製作遺失鑰匙、拷貝車鑰匙，支援國產與進口車款。">
   <meta name="keywords" content="桃園 車鑰匙, 晶片鑰匙, 車鑰匙遺失, 複製車鑰匙, 鎖匠, 車鑰匙維修, 汽車鑰匙服務">

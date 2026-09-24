@@ -56,3 +56,64 @@ footer > nav { display:flex; grid-area:1/2/3; gap:30px; font-size:18px; font-wei
 
 .auth-list details[open] summary span,
 .faq-list details[open] summary span { transform:none; }
+
+/* Service and case detail pages */
+.case-readmore,.inline-link { color:#536231; font-size:14px; font-weight:900; text-decoration:underline; text-underline-offset:4px; }
+.case-readmore { display:inline-block; margin-top:18px; }
+.detail-hero { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); max-width:1500px; min-height:610px; margin:auto; background:var(--cream); }
+.detail-hero-copy { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:clamp(46px,6vw,94px); }
+.breadcrumbs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:48px; color:#596052; font-size:13px; line-height:1.7; }
+.breadcrumbs a:hover { text-decoration:underline; }
+.detail-hero h1 { max-width:800px; margin:0; font-size:clamp(40px,5vw,72px); line-height:1.17; letter-spacing:-.05em; }
+.detail-lead { max-width:720px; margin:26px 0 16px; color:#4c5349; font-size:clamp(17px,1.5vw,21px); line-height:1.85; }
+.detail-area { margin:0 0 30px; font-size:14px; font-weight:800; line-height:1.7; }
+.detail-hero-image { min-height:610px; margin:0; overflow:hidden; background:#191b17; }
+.detail-hero-image img { width:100%; height:100%; max-height:740px; object-fit:cover; object-position:center 40%; }
+.detail-layout { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:clamp(42px,7vw,110px); max-width:1370px; margin:auto; padding:85px max(5vw,24px); }
+.detail-body section { border-top:1px solid var(--line); padding:36px 0 42px; }
+.detail-body section:first-child { padding-top:0; border-top:0; }
+.detail-body h2,.detail-related h2,.detail-contact h2 { margin:0 0 22px; font-size:clamp(28px,3vw,43px); line-height:1.25; letter-spacing:-.04em; }
+.detail-body p,.detail-body li { color:#545b51; font-size:16px; line-height:1.95; }
+.detail-body p { margin:0 0 18px; }
+.detail-body ul,.detail-body ol { margin:18px 0 24px; padding-left:24px; }
+.detail-body li { padding-left:5px; margin-bottom:8px; }
+.detail-body li strong { color:var(--ink); }
+.detail-side { align-self:start; position:sticky; top:115px; padding:32px; background:#e7e1d5; border-radius:8px; }
+.detail-side h2 { margin:0 0 22px; font-size:27px; }
+.detail-side ul { padding-left:20px; }
+.detail-side li,.detail-side p { color:#4d554c; font-size:14px; line-height:1.85; }
+.detail-side a { display:inline-block; margin-top:12px; border-bottom:1px solid; font-size:15px; font-weight:900; }
+.detail-related { padding-top:55px; padding-bottom:95px; }
+.detail-card-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.detail-card { display:flex; flex-direction:column; min-height:210px; padding:30px; background:#fff; border:1px solid var(--line); border-radius:8px; transition:transform .2s; }
+.detail-card:hover { transform:translateY(-3px); }
+.detail-card h3 { margin:0 0 12px; font-size:24px; }
+.detail-card p { max-width:540px; margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
+.detail-card span { margin-top:auto; padding-top:22px; color:#536231; font-size:13px; font-weight:900; }
+.detail-contact { display:flex; justify-content:space-between; align-items:center; gap:40px; padding:72px max(5vw,24px); background:var(--lime); }
+.detail-contact > div:first-child { max-width:690px; }
+.detail-contact p:not(.eyebrow) { margin:0; line-height:1.8; }
+.detail-contact .contact-buttons { flex:0 1 650px; }
+@media (width <= 1000px) {
+  .detail-hero { grid-template-columns:1fr; }
+  .detail-hero-copy { padding:68px 5vw; }
+  .detail-hero-image { min-height:0; height:430px; }
+  .detail-hero-image img { max-height:none; }
+  .detail-layout { grid-template-columns:1fr; }
+  .detail-side { position:static; }
+  .detail-contact { align-items:flex-start; flex-direction:column; }
+  .detail-contact .contact-buttons { flex:none; }
+}
+@media (width <= 700px) {
+  .detail-hero-copy { padding:30px 20px 54px; }
+  .breadcrumbs { margin-bottom:34px; font-size:12px; }
+  .detail-hero h1 { font-size:41px; }
+  .detail-hero-image { height:320px; }
+  .detail-layout { padding:58px 20px 30px; gap:24px; }
+  .detail-body section { padding:28px 0; }
+  .detail-body p,.detail-body li { font-size:15px; }
+  .detail-card-grid { grid-template-columns:1fr; }
+  .detail-related { padding:48px 20px 72px; }
+  .detail-contact { padding:60px 20px; }
+  .detail-contact .contact-buttons,.detail-hero .contact-buttons { width:100%; }
+}
